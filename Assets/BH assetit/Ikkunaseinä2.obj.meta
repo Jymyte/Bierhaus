@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a73172f48f21994e9ca80f97ffa7e8f
+guid: c3d903a93cbb3e74cb1f4177730b6f11
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,25 +7,10 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.009
-    second: {fileID: 2100000, guid: 5a2ab484ff0671b44a1badcbba43f18f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.009_NONE
-    second: {fileID: 2100000, guid: 5a2ab484ff0671b44a1badcbba43f18f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: defaultMat
-    second: {fileID: 9185737683893222716, guid: 0616080316abe634497372c4aa196a02, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ikuna
     second: {fileID: 2100000, guid: 5a2ab484ff0671b44a1badcbba43f18f, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -115,7 +100,7 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
