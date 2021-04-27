@@ -14,6 +14,6 @@ public class BeerTap : MonoBehaviour
 
     private void OnMouseDown() {
         Debug.Log("Beer Tap");
-        playerScripti.AddBeer();
+        playerScripti.AddItem("beer");
     }
 }
