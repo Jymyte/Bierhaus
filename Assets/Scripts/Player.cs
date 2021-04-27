@@ -6,7 +6,16 @@ public class Player : MonoBehaviour
 {
     private List<string> inventory = new List<string>();
     
-    private void AddBeer() {
+    public void AddBeer() {
         inventory.Add("beer");
+        foreach(string element in inventory) {
+            Debug.Log(element);
+        }
+    }
+    public void ServeBeer() {
+        if (inventory.Contains("beer")) {
+            //int temp = inventory.IndexOf("beer");
+            inventory.Remove("beer");
+        }
     }
 }
