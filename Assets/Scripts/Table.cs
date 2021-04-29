@@ -27,9 +27,6 @@ public class Table : MonoBehaviour
                 orders[0].SetAmoutOfBeer(temp);
                 IsOrderFulfilled();
             } else Debug.Log(item + " not in inventory");
-
-            //if (orders[0] != null) Debug.Log(orders[0].GetAmoutOfBeer() + "food: " + orders[0].GetAmountOfFood());
-
         } else {
             Debug.Log(item + " was not odered or has been fulfilled");
         }

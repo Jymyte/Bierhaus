@@ -23,7 +23,7 @@ public class Order
     public void SetAmoutOfBeer(int newAmount) {
         AmountOfBeer = newAmount;
     }
-        public int GetAmountOfFood() {
+    public int GetAmountOfFood() {
         return AmountOfFood;
     }
     public void SetAmountOfFood(int newAmount) {
