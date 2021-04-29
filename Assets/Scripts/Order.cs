@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Order : MonoBehaviour
+public class Order
 {
     private int AmountOfBeer;
     private int AmountOfFood;
@@ -14,5 +14,19 @@ public class Order : MonoBehaviour
 
     public void LogOrder() {
         Debug.Log("Beer: " + AmountOfBeer + " Food: " + AmountOfFood);
+    }
+
+    public int GetAmoutOfBeer() {
+        return AmountOfBeer;
+    }
+
+    public void SetAmoutOfBeer(int newAmount) {
+        AmountOfBeer = newAmount;
+    }
+        public int GetAmountOfFood() {
+        return AmountOfFood;
+    }
+    public void SetAmountOfFood(int newAmount) {
+        AmountOfFood = newAmount;
     }
 }

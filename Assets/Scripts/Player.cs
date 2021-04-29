@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
         if  (inventory.Count < 5) {
             inventory.Add(item);
 
+            //Function call for updating the inventory hud.
+
             foreach(string element in inventory) {
                 Debug.Log(element);
             }
@@ -18,11 +20,10 @@ public class Player : MonoBehaviour
         }
     }
     public void ServeItem(string item) {
-        if (inventory.Contains(item)) {
-            //int temp = inventory.IndexOf("beer");
-            inventory.Remove(item);
-        } else {
-            Debug.Log(item + " not in inventory");
-        }
+        inventory.Remove(item);
+    }
+
+    public bool hasItem(string item) {
+        if (inventory.Contains(item)) return true; else return false;
     }
 }
