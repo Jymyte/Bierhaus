@@ -17,18 +17,21 @@ public class Table : MonoBehaviour
 
     public void ServeItem(string item) {
         Debug.Log("Serving " + item + "...");
-        int temp = orders[0].GetAmoutOfBeer();
-        Debug.Log(orders[0].GetAmoutOfBeer() + "food: " + orders[0].GetAmountOfFood());
 
-        if (temp > 0) {
-            if (playerScript.hasItem(item)) {
-                playerScript.ServeItem(item);
-                temp--;
-                orders[0].SetAmoutOfBeer(temp);
-                IsOrderFulfilled();
-            } else Debug.Log(item + " not in inventory");
+        if (orders.Count > 0) {
+            int temp = orders[0].GetAmoutOfBeer();
+            Debug.Log(orders[0].GetAmoutOfBeer() + "food: " + orders[0].GetAmountOfFood());
+
+            if (temp > 0) {
+                if (playerScript.hasItem(item)) {
+                    playerScript.ServeItem(item);
+                    temp--;
+                    orders[0].SetAmoutOfBeer(temp);
+                    IsOrderFulfilled();
+                } else Debug.Log(item + " not in inventory");
+            } 
         } else {
-            Debug.Log(item + " was not odered or has been fulfilled");
+            Debug.Log("No active order");
         }
     }
 
