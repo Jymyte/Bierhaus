@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Table : MonoBehaviour
 {
+    public Globals globals;
+    public Orders ordersScribtable;
     [SerializeField]
     private GameObject player;
     Player playerScript;
@@ -13,6 +15,7 @@ public class Table : MonoBehaviour
     private void Start() {
         playerScript = player.GetComponent<Player>();
         MakeOrder();
+        ordersScribtable.RollNbrOfItems();
     }
 
     public void ServeItem(string item) {
