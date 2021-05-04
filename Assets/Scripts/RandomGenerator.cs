@@ -5,3 +5,4 @@ using UnityEngine;
 public class RandomGenerator
 {
     //private List<int> rollWeighs = 
+}
