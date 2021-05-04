@@ -773,6 +773,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1454129654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454129656}
+  - component: {fileID: 1454129655}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1454129655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454129654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9308238089de37345b28581900a9ed83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globals: {fileID: 0}
+  items: []
+  rollWeigh: 
+--- !u!4 &1454129656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454129654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.34200507, y: -18.610483, z: 19.40193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1672658268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4478329264028708, guid: 5b6a7b8bb512df8498ff3a483851e761, type: 3}
@@ -902,6 +948,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 746620416}
+    - target: {fileID: 4076704889294490109, guid: 79fda838ed2b3f24e9e3cd38ec6130c9, type: 3}
+      propertyPath: globals
+      value: 
+      objectReference: {fileID: 11400000, guid: 05af9231f2070c74f8256496e12ab24d, type: 2}
+    - target: {fileID: 4076704889294490109, guid: 79fda838ed2b3f24e9e3cd38ec6130c9, type: 3}
+      propertyPath: ordersScribtable
+      value: 
+      objectReference: {fileID: 11400000, guid: 41ec1774c76d3d84195f637c05ff5253, type: 2}
     - target: {fileID: 4076704889318992149, guid: 79fda838ed2b3f24e9e3cd38ec6130c9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
