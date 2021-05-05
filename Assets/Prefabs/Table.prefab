@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31339c77eaa05e9478e9a638d35d53ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globals: {fileID: 11400000, guid: 05af9231f2070c74f8256496e12ab24d, type: 2}
+  ordersScribtable: {fileID: 11400000, guid: 41ec1774c76d3d84195f637c05ff5253, type: 2}
   player: {fileID: 0}
 --- !u!1 &4076704889318992151
 GameObject:
@@ -246,14 +248,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4076704889294490109}
         m_TargetAssemblyTypeName: Table, Assembly-CSharp
-        m_MethodName: ServeBeerIf
-        m_Mode: 1
+        m_MethodName: ServeItem
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: beer
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4076704889878426568

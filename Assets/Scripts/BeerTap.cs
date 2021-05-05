@@ -8,12 +8,30 @@ public class BeerTap : MonoBehaviour
     private GameObject player;
     Player playerScripti;
 
+    private bool playerIsNear;
+
     private void Start() {
         playerScripti = player.GetComponent<Player>();
     }
 
     private void OnMouseDown() {
-        Debug.Log("Beer Tap");
-        playerScripti.AddItem("beer");
+        if (playerIsNear) {
+            Debug.Log("Beer Tap");
+            playerScripti.AddItem("beer");
+        } else {
+            Debug.Log("Player is not by " + this.gameObject.name);
+        }
+    }
+
+    private void OnTriggerEnter(Collider target) {
+        if (target.tag == "Player") {
+            playerIsNear = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider target) {
+        if (target.tag == "Player") {
+            playerIsNear = false;
+        }
     }
 }
