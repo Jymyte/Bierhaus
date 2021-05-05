@@ -13,12 +13,14 @@ public class Orders : ScriptableObject
     public List<int> rollWeigh = new List<int>();
     private List<int> rollTable = new List<int>();
 
-    public void RollNbrOfItems () {
+    public int RollNbrOfItems () {
         for (int i = 0; i < NbrOfItems.Count; i++) {
             for (int j = 0; j < rollWeigh[i]; j++) {
                 rollTable.Add(NbrOfItems[i]);
             }
         }
-        Debug.Log(rollTable.Count);
+
+        int rnd = Random.Range(0, 99);
+        return rollTable[rnd];
     }
 }

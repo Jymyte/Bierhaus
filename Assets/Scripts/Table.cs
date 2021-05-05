@@ -15,7 +15,7 @@ public class Table : MonoBehaviour
     private void Start() {
         playerScript = player.GetComponent<Player>();
         MakeOrder();
-        ordersScribtable.RollNbrOfItems();
+        
     }
 
     public void ServeItem(string item) {
@@ -53,7 +53,7 @@ public class Table : MonoBehaviour
     }
 
     private Order GenerateOrder() {
-        Order newOrder = new Order(2, 0);
+        Order newOrder = new Order(ordersScribtable.RollNbrOfItems(), 0);
         return newOrder;
     }
 }
