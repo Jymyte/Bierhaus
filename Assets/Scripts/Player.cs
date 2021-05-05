@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject ecm_agent;
+    NavMeshAgent nma;
     private List<string> inventory = new List<string>();
+
+    private void Start() {
+        nma = ecm_agent.GetComponent<NavMeshAgent>();
+    }
     
     public void AddItem(string item) {
         if  (inventory.Count < 5) {
@@ -23,6 +31,10 @@ public class Player : MonoBehaviour
         inventory.Remove(item);
     }
 
+    public void StopPlayerMovement() {
+        nma.isStopped = true;
+        nma.ResetPath();
+    }
     public bool hasItem(string item) {
         if (inventory.Contains(item)) return true; else return false;
     }

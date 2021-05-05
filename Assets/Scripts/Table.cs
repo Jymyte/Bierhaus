@@ -22,6 +22,7 @@ public class Table : MonoBehaviour
     public void ServeItem(string item) {
         if (playerIsNear) {
             Debug.Log("Serving " + item + "...");
+            playerScript.StopPlayerMovement();
 
             if (orders.Count > 0) {
                 int temp = orders[0].GetAmoutOfBeer();

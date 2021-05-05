@@ -6,18 +6,19 @@ public class BeerTap : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
-    Player playerScripti;
+    Player playerScript;
 
     private bool playerIsNear;
 
     private void Start() {
-        playerScripti = player.GetComponent<Player>();
+        playerScript = player.GetComponent<Player>();
     }
 
     private void OnMouseDown() {
         if (playerIsNear) {
             Debug.Log("Beer Tap");
-            playerScripti.AddItem("beer");
+            playerScript.StopPlayerMovement();
+            playerScript.AddItem("beer");
         } else {
             Debug.Log("Player is not by " + this.gameObject.name);
         }
