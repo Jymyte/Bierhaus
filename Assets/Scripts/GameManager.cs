@@ -5,21 +5,26 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Globals globals;
-     [SerializeField]
-    public List<string> items = new List<string>();
-    
-    
     [SerializeField]
-    public List<int> rollWeigh = new List<int>();
+    private List<GameObject> tables = new List<GameObject>();
+    private Table tableScript;
 
-    void Start()
-    {
-        
+    private void Start() {
+        InitializeTables();
+        foreach(GameObject table in tables) {
+            Debug.Log(table.name);
+        }
+    }
+    private void InitializeTables() {
+        RollTableOrder();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void RollTableOrder() {
+        for (int i = 0; i < tables.Count; i++) {
+         GameObject temp = tables[i];
+         int randomIndex = Random.Range(i, tables.Count);
+         tables[i] = tables[randomIndex];
+         tables[randomIndex] = temp;
+     }
     }
 }

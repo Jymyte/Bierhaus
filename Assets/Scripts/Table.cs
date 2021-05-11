@@ -12,16 +12,17 @@ public class Table : MonoBehaviour
     private List<Order> orders = new List<Order>();
     private int happiness = 2;
     private bool playerIsNear;
+    private int startTimer;
 
     private void Start() {
         playerScript = player.GetComponent<Player>();
         MakeOrder();
-        
     }
 
     public void ServeItem(string item) {
         if (playerIsNear) {
             Debug.Log("Serving " + item + "...");
+            playerScript.StopPlayerMovement();
 
             if (orders.Count > 0) {
                 int temp = orders[0].GetAmoutOfBeer();
@@ -51,6 +52,7 @@ public class Table : MonoBehaviour
     private void IsOrderFulfilled() {
         if (orders != null && orders[0].GetAmoutOfBeer() == 0 && orders[0].GetAmountOfFood() == 0) FulfillOrder(0); else Debug.Log("Order not yet fulfilled.");
     }
+
     private void FulfillOrder(int orderIndex) {
         orders.RemoveAt(orderIndex);
         happiness++;
@@ -61,7 +63,8 @@ public class Table : MonoBehaviour
         Order newOrder = new Order(ordersScribtable.RollNbrOfItems(), 0);
         return newOrder;
     }
-        private void OnTriggerEnter(Collider target) {
+
+    private void OnTriggerEnter(Collider target) {
         if (target.tag == "Player") {
             playerIsNear = true;
         }
@@ -71,5 +74,9 @@ public class Table : MonoBehaviour
         if (target.tag == "Player") {
             playerIsNear = false;
         }
+    }
+
+    private void SetStartTimer(int time) {
+        startTimer = time;
     }
 }
