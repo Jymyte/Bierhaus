@@ -5,17 +5,20 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
+    public Globals globals;
     [SerializeField]
     private GameObject ecm_agent;
     NavMeshAgent nma;
     private List<string> inventory = new List<string>();
+    private int inventroySize;
 
     private void Start() {
         nma = ecm_agent.GetComponent<NavMeshAgent>();
+        inventroySize = globals.inventorySize;
     }
     
     public void AddItem(string item) {
-        if  (inventory.Count < 5) {
+        if  (inventory.Count < inventroySize) {
             inventory.Add(item);
 
             //Function call for updating the inventory hud.

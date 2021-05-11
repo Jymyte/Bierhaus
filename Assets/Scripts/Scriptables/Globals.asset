@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a636465b2ae780842a4eb3c5f9e1422b, type: 3}
   m_Name: Globals
   m_EditorClassIdentifier: 
-  items: []
-  rollWeigh: 
+  inventorySize: 5
+  timeInBetweenOrder: 2

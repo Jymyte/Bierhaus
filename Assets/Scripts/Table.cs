@@ -44,7 +44,7 @@ public class Table : MonoBehaviour
         }
     }
 
-    private void MakeOrder() {
+    public void MakeOrder() {
         orders.Add(GenerateOrder());
         orders[0].LogOrder();
     }
