@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Globals
   m_EditorClassIdentifier: 
   inventorySize: 5
-  timeInBetweenOrder: 2
+  timeInBetweenOrder: 3

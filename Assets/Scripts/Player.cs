@@ -6,9 +6,13 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     public Globals globals;
+
     [SerializeField]
     private GameObject ecm_agent;
     NavMeshAgent nma;
+
+    [SerializeField]
+    private List<GameObject> inventoryIcons = new List<GameObject>();
     private List<string> inventory = new List<string>();
     private int inventroySize;
 
@@ -29,9 +33,11 @@ public class Player : MonoBehaviour
         } else {
             Debug.Log("Inventory full");
         }
+        updateInventoryHUD();
     }
     public void ServeItem(string item) {
         inventory.Remove(item);
+        updateInventoryHUD();
     }
 
     public void StopPlayerMovement() {
@@ -40,5 +46,13 @@ public class Player : MonoBehaviour
     }
     public bool hasItem(string item) {
         if (inventory.Contains(item)) return true; else return false;
+    }
+    private void updateInventoryHUD() {
+        foreach (GameObject icon in inventoryIcons) {
+            icon.SetActive(false);
+        }
+        for (int i = 0; i < inventory.Count; i++) {
+            inventoryIcons[i].SetActive(true);
+        } 
     }
 }

@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public Globals globals;
     [SerializeField]
     private List<GameObject> tables = new List<GameObject>();
-    [SerializeField]
     private List<Table> tableScripts = new List<Table>();
     private int tableToHandle = 0;
 

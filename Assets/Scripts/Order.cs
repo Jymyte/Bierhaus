@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class Order
 {
-    private int AmountOfBeer;
-    private int AmountOfFood;
-    
-    public Order(int beer, int food) {
-        AmountOfBeer = beer;
-        AmountOfFood = food;
+    private int amountOfBeer;
+    private int amountOfFood;
+    private float orderTimeout;
+    private string orderName;
+
+
+    public Order(int beer, int food, float timeout, string name) {
+        amountOfBeer = beer;
+        amountOfFood = food;
+        orderTimeout = timeout;
+        orderName = name;
     }
 
     public void LogOrder() {
-        Debug.Log("Beer: " + AmountOfBeer + " Food: " + AmountOfFood);
+        Debug.Log("Beer: " + amountOfBeer + " Food: " + amountOfFood);
     }
 
-    public int GetAmoutOfBeer() {
-        return AmountOfBeer;
+    public int GetAmountOfBeer() {
+        return amountOfBeer;
     }
 
-    public void SetAmoutOfBeer(int newAmount) {
-        AmountOfBeer = newAmount;
+    public void SetAmountOfBeer(int newAmount) {
+        amountOfBeer = newAmount;
     }
     public int GetAmountOfFood() {
-        return AmountOfFood;
+        return amountOfFood;
     }
     public void SetAmountOfFood(int newAmount) {
-        AmountOfFood = newAmount;
+        amountOfFood = newAmount;
+    }
+    public string GetOrderName() {
+        return orderName;
     }
 }
