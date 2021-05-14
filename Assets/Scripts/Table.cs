@@ -12,6 +12,9 @@ public class Table : MonoBehaviour
     [SerializeField]
     private List<Order> orders = new List<Order>();
     [SerializeField]
+    private GameObject speechBubbleNumber;
+    [SerializeField]
+    private List<Sprite> numberImages;
     private int happiness = 2;
     private bool playerIsNear;
     private int startTimer;
