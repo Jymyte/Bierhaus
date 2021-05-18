@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Table : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class Table : MonoBehaviour
     [SerializeField]
     private List<Order> orders = new List<Order>();
     [SerializeField]
-    private GameObject speechBubbleNumber;
+    private GameObject speechBubbleNumberObject;
+    private Image speechBubbleNumber;
     [SerializeField]
     private List<Sprite> numberImages;
     private int happiness = 2;
@@ -20,10 +22,13 @@ public class Table : MonoBehaviour
     private int startTimer;
     private int orderCounter = 0;
     private float orderTimeOut;
+    private float showOrderTime;
 
     private void Start() {
         playerScript = player.GetComponent<Player>();
         orderTimeOut = ordersScribtable.orderTimeOutSeconds;
+        showOrderTime = ordersScribtable.showOrderTime;
+        speechBubbleNumber = speechBubbleNumberObject.GetComponent<Image>();
     }
 
     public void ServeItem(string item) {
@@ -69,8 +74,13 @@ public class Table : MonoBehaviour
     }
 
     private Order GenerateOrder() {
-        Order newOrder = new Order(ordersScribtable.RollNbrOfItems(), 0, orderTimeOut, "OrderTimeOut" + orderCounter);
+        int nbrOfItems = ordersScribtable.RollNbrOfItems();
+        Order newOrder = new Order(nbrOfItems, 0, orderTimeOut, "OrderTimeOut" + orderCounter);
         FunctionTimer.Create(TimeoutAction, orderTimeOut, "OrderTimeOut" + orderCounter);
+
+        ShowOrder(nbrOfItems);
+        FunctionTimer.Create(HideOrder, showOrderTime, "HideOrder");
+
         orderCounter++;
         return newOrder;
     }
@@ -79,6 +89,14 @@ public class Table : MonoBehaviour
         orders.RemoveAt(0);
         happiness--;
         Debug.Log("order timed out");
+    }
+
+    private void ShowOrder(int amount) {
+        speechBubbleNumber.sprite = numberImages[amount - 1];
+        speechBubbleNumberObject.transform.parent.gameObject.SetActive(true);
+    }
+    private void HideOrder() {
+        speechBubbleNumberObject.transform.parent.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider target) {

@@ -15,3 +15,5 @@ MonoBehaviour:
   NbrOfItems: 0100000002000000030000000400000005000000
   rollWeigh: 190000001e000000140000000f0000000a000000
   orderTimeOutSeconds: 15
+  showOrderTime: 1
+  timeInBetweenOrder: 2

@@ -6,5 +6,5 @@ using UnityEngine;
 public class Globals : ScriptableObject
 {
     public int inventorySize;
-    public float timeInBetweenOrder;
+    
 }

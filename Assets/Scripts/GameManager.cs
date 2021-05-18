@@ -5,19 +5,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Globals globals;
+    public Orders ordersScriptable;
     [SerializeField]
     private List<GameObject> tables = new List<GameObject>();
     private List<Table> tableScripts = new List<Table>();
     private int tableToHandle = 0;
+    float timer;
 
     private void Start() {
+        timer = ordersScriptable.timeInBetweenOrder;
+        
         GetTableScripts();
         InitializeTables();
         StartTimers();
-
-        foreach(GameObject table in tables) {
-            Debug.Log(table.name);
-        }
     }
 
     private void GetTableScripts() {
@@ -38,20 +38,20 @@ public class GameManager : MonoBehaviour
     }
 
     private void RollTableOrder() {
-        for (int i = 0; i < tables.Count; i++) {
-            GameObject temp = tables[i];
-            int randomIndex = Random.Range(i, tables.Count);
-            tables[i] = tables[randomIndex];
-            tables[randomIndex] = temp;
+        for (int i = 0; i < tableScripts.Count; i++) {
+            Table temp = tableScripts[i];
+            int randomIndex = Random.Range(i, tableScripts.Count);
+            tableScripts[i] = tableScripts[randomIndex];
+            tableScripts[randomIndex] = temp;
         }
     }
 
     private void StartTimers() {
-        float timer = globals.timeInBetweenOrder;
+        timer = ordersScriptable.timeInBetweenOrder;
 
         foreach (GameObject table in tables) {
             FunctionTimer.Create(TimerAction, timer, "Timer");
-            timer += globals.timeInBetweenOrder;
+            timer += ordersScriptable.timeInBetweenOrder;
         }
     }
 

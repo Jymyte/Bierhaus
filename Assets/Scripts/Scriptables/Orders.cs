@@ -14,6 +14,8 @@ public class Orders : ScriptableObject
 
     //In how many seconds will an order timeout.
     public float orderTimeOutSeconds;
+    public float showOrderTime;
+    public float timeInBetweenOrder;
     private List<int> rollTable = new List<int>();
 
     public int RollNbrOfItems () {
