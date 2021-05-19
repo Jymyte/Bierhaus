@@ -88,7 +88,7 @@ public class Table : MonoBehaviour
     private void TimeoutAction() {
         orders.RemoveAt(0);
         happiness--;
-        Debug.Log("order timed out");
+        Debug.Log("order timed out " + "Happiness: " + happiness);
     }
 
     private void ShowOrder(int amount) {

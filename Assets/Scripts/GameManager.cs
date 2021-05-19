@@ -20,12 +20,6 @@ public class GameManager : MonoBehaviour
         StartTimers();
     }
 
-    private void GetTableScripts() {
-        foreach(GameObject table in tables) {
-            tableScripts.Add(table.GetComponent<Table>());
-        }
-    }
-
     private void InitializeTables() {
         RollTableOrder();
     }
@@ -35,6 +29,12 @@ public class GameManager : MonoBehaviour
         tableToHandle = 0;
         RollTableOrder();
         StartTimers();
+    }
+    
+    private void GetTableScripts() {
+        foreach(GameObject table in tables) {
+            tableScripts.Add(table.GetComponent<Table>());
+        }
     }
 
     private void RollTableOrder() {
