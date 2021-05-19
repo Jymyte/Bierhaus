@@ -4,17 +4,14 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 682874821034490873
-    second: TALK
+      74: 4836411336060142659
+    second: TARJOILE
   - first:
       74: 4609528859349520574
     second: PELAAJA.001|BREATH
   - first:
       74: -924990861559945205
     second: PELAAJA.001|IDLE
-  - first:
-      74: -1799809693577807227
-    second: PELAAJA.001|PASS/SERVE
   - first:
       74: 5451300853518975546
     second: PELAAJA.001|PELAAJA IDLE
@@ -25,14 +22,12 @@ ModelImporter:
       74: -3896928336711683465
     second: PELAAJA.001|TALK
   - first:
+      74: -6143485644673523656
+    second: PELAAJA.001|TARJOILE
+  - first:
       74: -5058074873207664228
     second: PELAAJA.001|WALK
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.011
-    second: {fileID: 2100000, guid: 5a2ab484ff0671b44a1badcbba43f18f, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
