@@ -42,7 +42,7 @@ public class Table : MonoBehaviour
 
                 if (temp > 0) {
                     if (playerScript.hasItem(item)) {
-                        playerScript.ServeItem(item);
+                        playerScript.QueueServeItem(item);
                         temp--;
                         orders[0].SetAmountOfBeer(temp);
                         IsOrderFulfilled();
