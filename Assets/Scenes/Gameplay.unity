@@ -572,6 +572,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6025846869301481886, guid: e3415a353deb2be4c84835825146a56d, type: 3}
   m_PrefabInstance: {fileID: 1109725408}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &717628180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717628178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81172f70367d9f84ea0701f08275c91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _angularSpeed: 540
+  _acceleration: 50
+  _deceleration: 20
+  _groundFriction: 8
+  _useBrakingFriction: 0
+  _brakingFriction: 8
+  _airFriction: 0
+  _airControl: 0.2
+  _canCrouch: 1
+  _standingHeight: 2
+  _crouchingHeight: 1
+  _baseJumpHeight: 1.5
+  _extraJumpTime: 0.5
+  _extraJumpPower: 25
+  _jumpPreGroundedToleranceTime: 0.15
+  _jumpPostGroundedToleranceTime: 0.15
+  _maxMidAirJumps: 1
+  _useRootMotion: 0
+  _rootMotionRotation: 0
+  _autoBraking: 1
+  _brakingDistance: 2
+  _stoppingDistance: 1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &962983124
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +946,8 @@ PrefabInstance:
       propertyPath: inventoryIcons.Array.data[4]
       value: 
       objectReference: {fileID: 1157521883}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5925128233009917898, guid: e3415a353deb2be4c84835825146a56d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e3415a353deb2be4c84835825146a56d, type: 3}
 --- !u!1 &1157521883
 GameObject:
