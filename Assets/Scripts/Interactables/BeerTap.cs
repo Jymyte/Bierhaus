@@ -18,7 +18,7 @@ public class BeerTap : MonoBehaviour
         if (playerIsNear) {
             Debug.Log("Beer Tap");
             playerScript.StopPlayerMovement();
-            playerScript.AddItem("beer");
+            playerScript.QueueAddItem("beer");
         } else {
             Debug.Log("Player is not by " + this.gameObject.name);
         }

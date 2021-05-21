@@ -28,19 +28,14 @@ public class Player : MonoBehaviour
         queue = actionQueue.GetComponent<PlayerActionQueue>();
     }
     
-    public void AddItem(string item) {
+    public void QueueAddItem(string item) {
         if  (inventory.Count < inventorySize) {
+            queue.playerActions.Enqueue("GetBeer");
             inventory.Add(item);
-
-            //Function call for updating the inventory hud.
-
-            foreach(string element in inventory) {
-                Debug.Log(element);
-            }
+            updateInventoryHUD();            
         } else {
             Debug.Log("Inventory full");
         }
-        updateInventoryHUD();
     }
 
     public void QueueServeItem(string item) {

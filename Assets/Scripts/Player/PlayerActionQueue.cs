@@ -9,6 +9,9 @@ public class PlayerActionQueue : MonoBehaviour
     private Player playerScript;
     public Queue<string> playerActions = new Queue<string>();
 
+    [SerializeField]
+    private Globals globals;
+
     void Start() {
         playerScript = player.GetComponent<Player>();
         StartCoroutine(CoroutineCoordinator());
@@ -25,7 +28,13 @@ public class PlayerActionQueue : MonoBehaviour
 
     public IEnumerator ServeBeer() {
         playerScript.FreezePlayer(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(globals.serveActionTime);
+        if (playerActions.Count == 0) playerScript.FreezePlayer(false);
+    }
+
+    public IEnumerator GetBeer() {
+        playerScript.FreezePlayer(true);
+        yield return new WaitForSeconds(globals.addItemActionTime);
         if (playerActions.Count == 0) playerScript.FreezePlayer(false);
     }
 }
