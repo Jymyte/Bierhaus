@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Globals
   m_EditorClassIdentifier: 
   inventorySize: 5
-  serveActionTime: 0.3
+  serveActionTime: 0
   addItemActionTime: 0.3
