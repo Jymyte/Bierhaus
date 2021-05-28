@@ -1189,6 +1189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globals: {fileID: 0}
   ecm_agent: {fileID: 0}
+  actionQueue: {fileID: 0}
   inventoryIcons: []
 --- !u!1001 &766328064
 PrefabInstance:
