@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8946021232954198295}
   - component: {fileID: 4962558836050718123}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: walkP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7207758190784412617}
   serializedVersion: 7
-  lengthInSec: 0.2
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
