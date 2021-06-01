@@ -8,5 +8,6 @@ public class Globals : ScriptableObject
     public int inventorySize;
     public float serveActionTime;
     public float addItemActionTime;
+    public int maxHappiness;
     
 }
