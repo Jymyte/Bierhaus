@@ -9,5 +9,6 @@ public class Globals : ScriptableObject
     public float serveActionTime;
     public float addItemActionTime;
     public int maxHappiness;
+    public int defaultHappiness;
     
 }

@@ -17,18 +17,25 @@ public class Table : MonoBehaviour
     private Image speechBubbleNumber;
     [SerializeField]
     private List<Sprite> numberImages;
-    private int happiness = 2;
+    private int happiness;
     private bool playerIsNear;
     private int startTimer;
     private int orderCounter = 0;
     private float orderTimeOut;
     private float showOrderTime;
 
+    //Delegate
+    public delegate void MoodDelegate(bool fulfilled, int happiness);
+    public MoodDelegate handleMoodChange;
+
     private void Start() {
         playerScript = player.GetComponent<Player>();
         orderTimeOut = ordersScribtable.orderTimeOutSeconds;
         showOrderTime = ordersScribtable.showOrderTime;
         speechBubbleNumber = speechBubbleNumberObject.GetComponent<Image>();
+        happiness = globals.defaultHappiness;
+        //Delegate
+        //handleMoodChange += AdjustMood;
     }
 
     public void ServeItem(string item) {
@@ -69,8 +76,14 @@ public class Table : MonoBehaviour
     private void FulfillOrder(int orderIndex) {
         FunctionTimer.StopTimer(orders[orderIndex].GetOrderName());
         orders.RemoveAt(orderIndex);
-        happiness++;
+        AdjustMood(true);
+        handleMoodChange(true, happiness);
         Debug.Log("Order fulfilled! Happiness: " + happiness);
+    }
+
+    private void AdjustMood(bool fulfilled) {
+        if(fulfilled) happiness++;
+        else happiness--;
     }
 
     private Order GenerateOrder() {
@@ -87,7 +100,8 @@ public class Table : MonoBehaviour
 
     private void TimeoutAction() {
         orders.RemoveAt(0);
-        happiness--;
+        AdjustMood(false);
+        handleMoodChange(false, happiness);
         Debug.Log("order timed out " + "Happiness: " + happiness);
     }
 

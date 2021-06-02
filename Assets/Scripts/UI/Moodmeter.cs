@@ -17,7 +17,7 @@ public class Moodmeter : MonoBehaviour
     private RectTransform backgroundRectTransform;
     private float backgroundWidth;
     private Table tableScript;
-    private float lerpTime = 1000f;
+    private float lerpTime = 100f;
     private Vector3 temp;
 
     void Start()
@@ -27,23 +27,24 @@ public class Moodmeter : MonoBehaviour
         backgroundWidth = backgroundRectTransform.sizeDelta.x * backgroundRectTransform.localScale.x;
         Debug.Log(backgroundWidth);
         armRectTransform = arm.GetComponent<RectTransform>();
+        tableScript.handleMoodChange += positionArm;
 
-        positionArm(3);
+        positionArm(true, globals.defaultHappiness);
     }
 
-    void positionArm(int happiness) {
+    void positionArm(bool fulfilled, int happiness) {
         int temp = globals.maxHappiness + 1;
         float subDiv = backgroundWidth / temp;
         float targetX = subDiv * happiness;
         armTarget = new Vector3(targetX, armRectTransform.position.y, armRectTransform.position.z);
-        Debug.Log("target" + armTarget);
-        Debug.Log(armRectTransform.anchoredPosition3D);
+        StartCoroutine(MoveArm());
     }
 
-    private void Update() {
-
-        armRectTransform.anchoredPosition3D = Vector3.MoveTowards(armRectTransform.anchoredPosition3D, armTarget, lerpTime * Time.deltaTime);
-        /* armRectTransform.anchoredPosition3D = temp;
-        Debug.Log(temp); */
+    private IEnumerator MoveArm() {
+        while (Vector3.Distance(armRectTransform.anchoredPosition3D, armTarget) > 0.05f) {
+            armRectTransform.anchoredPosition3D = Vector3.MoveTowards(armRectTransform.anchoredPosition3D, armTarget, lerpTime * Time.deltaTime);
+            yield return null;
+        }
     }
+        
 }
