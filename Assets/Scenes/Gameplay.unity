@@ -430,6 +430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pelaaja
       objectReference: {fileID: 0}
+    - target: {fileID: 5194334309628646677, guid: 9c6bf4d1652bef64ab734475a5d4b600, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c6bf4d1652bef64ab734475a5d4b600, type: 3}
 --- !u!1001 &632357134
