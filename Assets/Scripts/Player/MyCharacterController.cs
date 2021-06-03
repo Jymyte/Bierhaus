@@ -6,7 +6,14 @@ using ECM.Controllers;
 public class MyCharacterController : BaseAgentController
 {
     private bool isBusy = false;
+    private LayerMask rayCastMask;
+    public override void Awake()
+    {
+        // Calls the parent class' version of method.
 
+        base.Awake();
+        rayCastMask = LayerMask.GetMask("RayCastTarget");
+    }
     protected override void HandleInput() {
         if (!isBusy) {
             if (Input.GetKeyDown(KeyCode.P))
@@ -25,12 +32,12 @@ public class MyCharacterController : BaseAgentController
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hitInfo;
-            if (!Physics.Raycast(ray, out hitInfo, Mathf.Infinity, groundMask.value))
-                return;
-
             // Set agent destination to ground hit point
-
+            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, rayCastMask.value))
             agent.SetDestination(hitInfo.point);
+
+
+
         }
     }
 
