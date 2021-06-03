@@ -1,14 +1,35 @@
 fileFormatVersion: 2
-guid: 36b061ed9e9943444aedb0e1d245c229
+guid: a1619a849db5e0b4bab6b86a3641f0e1
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 4609528859349520574
+    second: PELAAJA.001|BREATH
+  - first:
+      74: -924990861559945205
+    second: PELAAJA.001|IDLE
+  - first:
+      74: 5451300853518975546
+    second: PELAAJA.001|PELAAJA IDLE
+  - first:
+      74: 2153996858590853848
+    second: PELAAJA.001|TAKE
+  - first:
+      74: -3896928336711683465
+    second: PELAAJA.001|TALK
+  - first:
+      74: -6143485644673523656
+    second: PELAAJA.001|TARJOILE
+  - first:
+      74: -5058074873207664228
+    second: PELAAJA.001|WALK
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: defaultMat
-    second: {fileID: 2100000, guid: 029a450550fccd04cbbac9495a34be63, type: 2}
+      name: noble
+    second: {fileID: 2100000, guid: ca81e20b25e170543b21c31430accdf0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
