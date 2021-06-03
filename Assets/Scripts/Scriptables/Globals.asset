@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Globals
   m_EditorClassIdentifier: 
   inventorySize: 5
+  serveActionTime: 0.25
+  addItemActionTime: 0.25
+  maxHappiness: 5
+  defaultHappiness: 2
