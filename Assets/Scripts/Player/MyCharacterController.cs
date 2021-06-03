@@ -34,6 +34,20 @@ public class MyCharacterController : BaseAgentController
         }
     }
 
+    protected override void Animate()
+    {
+        if (animator == null)
+            return;
+
+        // Compute move vector length in local space
+        var move = transform.InverseTransformDirection(moveDirection).magnitude;
+        bool moving = move > float.Epsilon ? true : false;
+
+        // Update the animator parameters
+
+        animator.SetBool("isWalking", moving);
+    }
+
     public void setIsBusy(bool temp) {
         isBusy = temp;
     }
