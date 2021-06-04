@@ -11,13 +11,39 @@ public class GameManager : MonoBehaviour
     private List<Table> tableScripts = new List<Table>();
     private int tableToHandle = 0;
     float timer;
+    float addTableTimer;
+    private int nextTableToAdd = 0;
+    private int tablesInRound;
 
     private void Start() {
         timer = ordersScriptable.timeInBetweenOrder;
+        tablesInRound = globals.startingActiveTableAmount;
         
-        GetTableScripts();
+        while (tableScripts.Count < globals.startingActiveTableAmount) {
+            AddTable();
+        }
+        SetTablesInQueue();
+        
         InitializeTables();
         StartTimers();
+
+    }
+
+    private void AddTable() {
+        if (tableScripts.Count < tables.Count) {
+            tableScripts.Add(tables[nextTableToAdd].GetComponent<Table>());
+            nextTableToAdd++;
+        }
+    }
+
+    private void SetTablesInQueue() {
+        int temp = nextTableToAdd;
+
+        while (temp < tables.Count) {
+            FunctionTimer.Create(AddTable, addTableTimer, "AddNewTableTimer");
+            addTableTimer += globals.addNewTableTimer;
+            temp++;
+        }
     }
 
     private void InitializeTables() {
@@ -25,6 +51,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void AnotherRound() {
+        tablesInRound = tableScripts.Count;
         Debug.Log("Another round!");
         tableToHandle = 0;
         RollTableOrder();
@@ -49,7 +76,7 @@ public class GameManager : MonoBehaviour
     private void StartTimers() {
         timer = ordersScriptable.timeInBetweenOrder;
 
-        foreach (GameObject table in tables) {
+        foreach (Table table in tableScripts) {
             FunctionTimer.Create(TimerAction, timer, "Timer");
             timer += ordersScriptable.timeInBetweenOrder;
         }
@@ -60,6 +87,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("timer test " + tables[tableToHandle].name);
         tableToHandle++;
         
-        if (tableToHandle >= tables.Count) AnotherRound(); 
+        if (tableToHandle >= tablesInRound) AnotherRound(); 
     }
 }

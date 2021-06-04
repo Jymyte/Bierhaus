@@ -10,5 +10,7 @@ public class Globals : ScriptableObject
     public float addItemActionTime;
     public int maxHappiness;
     public int defaultHappiness;
+    public int startingActiveTableAmount;
+    public float addNewTableTimer;
     
 }

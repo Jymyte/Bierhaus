@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
     private GameObject actionQueue;
     private PlayerActionQueue queue;
 
+    //Animation stuff
+    public Animator anim;
+
     [SerializeField]
     private List<GameObject> inventoryIcons = new List<GameObject>();
     private List<string> inventory = new List<string>();
@@ -26,6 +29,8 @@ public class Player : MonoBehaviour
         myCharacterController = ecm_agent.GetComponent<MyCharacterController>();
         inventorySize = globals.inventorySize;
         queue = actionQueue.GetComponent<PlayerActionQueue>();
+
+        anim = gameObject.GetComponent<Animator>();
     }
     
     public void QueueAddItem(string item) {

@@ -17,3 +17,5 @@ MonoBehaviour:
   addItemActionTime: 0.25
   maxHappiness: 5
   defaultHappiness: 2
+  startingActiveTableAmount: 1
+  addNewTableTimer: 5

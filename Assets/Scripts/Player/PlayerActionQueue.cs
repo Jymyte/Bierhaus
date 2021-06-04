@@ -27,14 +27,22 @@ public class PlayerActionQueue : MonoBehaviour
     }
 
     public IEnumerator ServeBeer() {
+        playerScript.anim.SetBool("isServing", true);
         playerScript.FreezePlayer(true);
         yield return new WaitForSeconds(globals.serveActionTime);
-        if (playerActions.Count == 0) playerScript.FreezePlayer(false);
+        if (playerActions.Count == 0) {
+            playerScript.anim.SetBool("isServing", false);
+            playerScript.FreezePlayer(false);
+        }
     }
 
     public IEnumerator GetBeer() {
+        playerScript.anim.SetBool("isTaking", true);
         playerScript.FreezePlayer(true);
         yield return new WaitForSeconds(globals.addItemActionTime);
-        if (playerActions.Count == 0) playerScript.FreezePlayer(false);
+        if (playerActions.Count == 0) {
+            playerScript.anim.SetBool("isTaking", false);
+            playerScript.FreezePlayer(false);
+        }
     }
 }
