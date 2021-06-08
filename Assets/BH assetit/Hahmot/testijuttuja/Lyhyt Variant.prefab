@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6063486225157677727, guid: 786043dea5f01024ca5b79c26e3879db, type: 3}
       propertyPath: m_Name
-      value: Lyhyt
+      value: Lyhyt Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7833600229383270172, guid: 786043dea5f01024ca5b79c26e3879db, type: 3}
       propertyPath: player
