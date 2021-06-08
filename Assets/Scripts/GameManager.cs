@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void AnotherRound() {
         tablesInRound = tableScripts.Count;
-        Debug.Log("Another round!");
+        //Debug.Log("Another round!");
         tableToHandle = 0;
         RollTableOrder();
         StartTimers();
@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
 
     private void TimerAction() {
         tableScripts[tableToHandle].MakeOrder();
-        Debug.Log("timer test " + tables[tableToHandle].name);
         tableToHandle++;
         
         if (tableToHandle >= tablesInRound) AnotherRound(); 

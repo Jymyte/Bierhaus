@@ -17,9 +17,9 @@ public class Order
         orderName = name;
     }
 
-    public void LogOrder() {
+    /* public void LogOrder() {
         Debug.Log("Beer: " + amountOfBeer + " Food: " + amountOfFood);
-    }
+    } */
 
     public int GetAmountOfBeer() {
         return amountOfBeer;

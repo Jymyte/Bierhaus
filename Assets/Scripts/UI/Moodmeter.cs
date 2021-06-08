@@ -25,9 +25,9 @@ public class Moodmeter : MonoBehaviour
         tableScript = parentTable.GetComponent<Table>();
         backgroundRectTransform = background.GetComponent<RectTransform>();
         backgroundWidth = backgroundRectTransform.sizeDelta.x * backgroundRectTransform.localScale.x;
-        Debug.Log(backgroundWidth);
         armRectTransform = arm.GetComponent<RectTransform>();
         tableScript.handleMoodChange += positionArm;
+        tableScript.handleOverAllMoodChange += positionArm;
 
         positionArm(true, globals.defaultHappiness);
     }
@@ -41,6 +41,7 @@ public class Moodmeter : MonoBehaviour
     }
 
     private IEnumerator MoveArm() {
+        Debug.Log("Happiness: " + tableScript.GetHappiness());
         while (Vector3.Distance(armRectTransform.anchoredPosition3D, armTarget) > 0.05f) {
             armRectTransform.anchoredPosition3D = Vector3.MoveTowards(armRectTransform.anchoredPosition3D, armTarget, lerpTime * Time.deltaTime);
             yield return null;
