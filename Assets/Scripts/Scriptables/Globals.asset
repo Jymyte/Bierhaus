@@ -19,3 +19,5 @@ MonoBehaviour:
   defaultHappiness: 2
   startingActiveTableAmount: 1
   addNewTableTimer: 5
+  resetTableTimer: 0.5
+  NPCAnimationTime: 0.5

@@ -12,5 +12,7 @@ public class Globals : ScriptableObject
     public int defaultHappiness;
     public int startingActiveTableAmount;
     public float addNewTableTimer;
+    public float resetTableTimer;
+    public float NPCAnimationTime;
     
 }

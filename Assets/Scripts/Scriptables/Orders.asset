@@ -16,4 +16,4 @@ MonoBehaviour:
   rollWeigh: 190000001e000000140000000f0000000a000000
   orderTimeOutSeconds: 15
   showOrderTime: 3
-  timeInBetweenOrder: 5
+  timeInBetweenOrder: 2

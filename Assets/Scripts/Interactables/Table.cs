@@ -24,6 +24,11 @@ public class Table : MonoBehaviour
     private float orderTimeOut;
     private float showOrderTime;
 
+    //NPC
+    [SerializeField]
+    private List<GameObject> npcGameObjects;
+    private List<NPCAnimationController> npcControllers;
+
     //Delegate
     public delegate void MoodDelegate(bool fulfilled, int happiness);
     public MoodDelegate handleMoodChange;
@@ -32,6 +37,7 @@ public class Table : MonoBehaviour
 
 
     private void Start() {
+        GetNPCScripts();
         playerScript = player.GetComponent<Player>();
         orderTimeOut = ordersScribtable.orderTimeOutSeconds;
         showOrderTime = ordersScribtable.showOrderTime;
@@ -96,8 +102,6 @@ public class Table : MonoBehaviour
         } else {
             
         }
-            
-
         Debug.Log("Order fulfilled! Happiness: " + happiness);
     }
     private void TimeoutAction() {
@@ -119,7 +123,8 @@ public class Table : MonoBehaviour
     private void AdjustMood(bool fulfilled) {
         if(fulfilled) happiness++;
         else happiness--;
-        handleMoodChange(true, happiness);
+        handleMoodChange(fulfilled, happiness);
+        PlayNPCAnimaton(fulfilled);
     }
 
     private void ShowOrder(int amount) {
@@ -129,6 +134,29 @@ public class Table : MonoBehaviour
     private void HideOrder() {
         speechBubbleNumberObject.transform.parent.gameObject.SetActive(false);
     }
+
+
+    //NPC STUFF=======================================================================
+
+    private void GetNPCScripts() {
+        if (npcGameObjects.Count > 0) {
+            foreach (GameObject npc in npcGameObjects)
+            {
+                npcControllers.Add(npc.GetComponent<NPCAnimationController>());
+                Debug.Log(npcControllers.Count);
+            }
+        }
+    }
+
+    private void PlayNPCAnimaton(bool happy) {
+        if (happy) {
+            if (npcControllers.Count > 0) {
+                foreach (NPCAnimationController npc in npcControllers) {
+                    npc.PlayAnim("isHappy");
+                }
+            }
+        }
+    } 
 
     private void OnTriggerEnter(Collider target) {
         if (target.tag == "Player") {

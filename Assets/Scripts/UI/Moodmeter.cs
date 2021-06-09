@@ -42,7 +42,7 @@ public class Moodmeter : MonoBehaviour
 
     private IEnumerator ResetArm(bool fulfilled, int happiness) {
         Debug.Log("RESET ARM happiness: " + happiness);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(globals.resetTableTimer);
         StopCoroutine("MoveArm");
         PositionArm(fulfilled, happiness);
     }
