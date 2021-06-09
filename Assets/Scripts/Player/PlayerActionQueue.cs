@@ -34,6 +34,7 @@ public class PlayerActionQueue : MonoBehaviour
             playerScript.anim.SetBool("isServing", false);
             playerScript.FreezePlayer(false);
         }
+        playerScript.updateInventoryHUD();
     }
 
     public IEnumerator GetBeer() {
@@ -44,5 +45,6 @@ public class PlayerActionQueue : MonoBehaviour
             playerScript.anim.SetBool("isTaking", false);
             playerScript.FreezePlayer(false);
         }
+        playerScript.updateInventoryHUD();
     }
 }

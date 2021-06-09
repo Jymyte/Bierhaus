@@ -27,15 +27,16 @@ public class Table : MonoBehaviour
     //Delegate
     public delegate void MoodDelegate(bool fulfilled, int happiness);
     public MoodDelegate handleMoodChange;
+    public delegate void OverAllMoodDelegate(bool positive, int happiness);
+    public OverAllMoodDelegate handleOverAllMoodChange;
+
 
     private void Start() {
         playerScript = player.GetComponent<Player>();
         orderTimeOut = ordersScribtable.orderTimeOutSeconds;
         showOrderTime = ordersScribtable.showOrderTime;
         speechBubbleNumber = speechBubbleNumberObject.GetComponent<Image>();
-        happiness = globals.defaultHappiness;
-        //Delegate
-        //handleMoodChange += AdjustMood;
+        happiness = globals.defaultHappiness;        
     }
 
     public void ServeItem(string item) {
@@ -45,7 +46,7 @@ public class Table : MonoBehaviour
 
             if (orders.Count > 0) {
                 int temp = orders[0].GetAmountOfBeer();
-                Debug.Log(orders[0].GetAmountOfBeer() + "food: " + orders[0].GetAmountOfFood());
+                //Debug.Log(orders[0].GetAmountOfBeer() + "food: " + orders[0].GetAmountOfFood());
 
                 if (temp > 0) {
                     if (playerScript.hasItem(item)) {
@@ -53,39 +54,21 @@ public class Table : MonoBehaviour
                         temp--;
                         orders[0].SetAmountOfBeer(temp);
                         IsOrderFulfilled();
-                    } else Debug.Log(item + " not in inventory");
+                    } //else Debug.Log(item + " not in inventory");
                 } 
             } else {
-                Debug.Log("No active order");
+                //Debug.Log("No active order");
             }
         } else {
-            Debug.Log("Player is not by " + this.gameObject.name);
+            //Debug.Log("Player is not by " + this.gameObject.name);
         }
     }
 
     public void MakeOrder() {
         orders.Add(GenerateOrder());
-        orders[0].LogOrder();
+        //orders[0].LogOrder();
         Debug.Log("Orders list size: " + orders.Count);
     }
-
-    private void IsOrderFulfilled() {
-        if (orders != null && orders[0].GetAmountOfBeer() == 0 && orders[0].GetAmountOfFood() == 0) FulfillOrder(0); else Debug.Log("Order not yet fulfilled.");
-    }
-
-    private void FulfillOrder(int orderIndex) {
-        FunctionTimer.StopTimer(orders[orderIndex].GetOrderName());
-        orders.RemoveAt(orderIndex);
-        AdjustMood(true);
-        handleMoodChange(true, happiness);
-        Debug.Log("Order fulfilled! Happiness: " + happiness);
-    }
-
-    private void AdjustMood(bool fulfilled) {
-        if(fulfilled) happiness++;
-        else happiness--;
-    }
-
     private Order GenerateOrder() {
         int nbrOfItems = ordersScribtable.RollNbrOfItems();
         Order newOrder = new Order(nbrOfItems, 0, orderTimeOut, "OrderTimeOut" + orderCounter);
@@ -98,11 +81,45 @@ public class Table : MonoBehaviour
         return newOrder;
     }
 
+    private void IsOrderFulfilled() {
+        if (orders != null && orders[0].GetAmountOfBeer() == 0 && orders[0].GetAmountOfFood() == 0) FulfillOrder(0); else Debug.Log("Order not yet fulfilled.");
+    }
+
+    private void FulfillOrder(int orderIndex) {
+        FunctionTimer.StopTimer(orders[orderIndex].GetOrderName());
+        orders.RemoveAt(orderIndex);
+        AdjustMood(true);
+        
+        Debug.Log("Does happiness: " + happiness + " match max happiness: " + globals.maxHappiness + " Bool happiness >= maxHappiness: " + (happiness >= globals.maxHappiness));
+        if (happiness >= globals.maxHappiness) {
+            ResetTable(true);
+        } else {
+            
+        }
+            
+
+        Debug.Log("Order fulfilled! Happiness: " + happiness);
+    }
     private void TimeoutAction() {
         orders.RemoveAt(0);
         AdjustMood(false);
-        handleMoodChange(false, happiness);
-        Debug.Log("order timed out " + "Happiness: " + happiness);
+
+        if (happiness <= 0) {
+            ResetTable(false);
+        }
+    }
+
+    private void ResetTable(bool positive) {
+        Debug.Log("Reset Table: " + "happiness before adjustment" + happiness);
+        happiness = globals.defaultHappiness;
+        handleOverAllMoodChange(positive, happiness);
+        Debug.Log("happiness after adjustment: " + happiness);
+    }
+
+    private void AdjustMood(bool fulfilled) {
+        if(fulfilled) happiness++;
+        else happiness--;
+        handleMoodChange(true, happiness);
     }
 
     private void ShowOrder(int amount) {
@@ -127,5 +144,9 @@ public class Table : MonoBehaviour
 
     private void SetStartTimer(int time) {
         startTimer = time;
+    }
+
+    public int GetHappiness() {
+        return happiness;
     }
 }

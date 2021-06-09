@@ -25,22 +25,30 @@ public class Moodmeter : MonoBehaviour
         tableScript = parentTable.GetComponent<Table>();
         backgroundRectTransform = background.GetComponent<RectTransform>();
         backgroundWidth = backgroundRectTransform.sizeDelta.x * backgroundRectTransform.localScale.x;
-        Debug.Log(backgroundWidth);
         armRectTransform = arm.GetComponent<RectTransform>();
-        tableScript.handleMoodChange += positionArm;
+        tableScript.handleMoodChange += PositionArm;
+        tableScript.handleOverAllMoodChange += (bool fulfilled, int happiness) => {StartCoroutine(ResetArm(fulfilled, happiness));};
 
-        positionArm(true, globals.defaultHappiness);
+        PositionArm(true, globals.defaultHappiness);
     }
 
-    void positionArm(bool fulfilled, int happiness) {
+    void PositionArm(bool fulfilled, int happiness) {
         int temp = globals.maxHappiness + 1;
         float subDiv = backgroundWidth / temp;
         float targetX = subDiv * happiness;
         armTarget = new Vector3(targetX, armRectTransform.position.y, armRectTransform.position.z);
-        StartCoroutine(MoveArm());
+        StartCoroutine("MoveArm");
+    }
+
+    private IEnumerator ResetArm(bool fulfilled, int happiness) {
+        Debug.Log("RESET ARM happiness: " + happiness);
+        yield return new WaitForSeconds(0.4f);
+        StopCoroutine("MoveArm");
+        PositionArm(fulfilled, happiness);
     }
 
     private IEnumerator MoveArm() {
+        Debug.Log("Happiness: " + tableScript.GetHappiness());
         while (Vector3.Distance(armRectTransform.anchoredPosition3D, armTarget) > 0.05f) {
             armRectTransform.anchoredPosition3D = Vector3.MoveTowards(armRectTransform.anchoredPosition3D, armTarget, lerpTime * Time.deltaTime);
             yield return null;
