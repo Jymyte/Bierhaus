@@ -26,18 +26,25 @@ public class Moodmeter : MonoBehaviour
         backgroundRectTransform = background.GetComponent<RectTransform>();
         backgroundWidth = backgroundRectTransform.sizeDelta.x * backgroundRectTransform.localScale.x;
         armRectTransform = arm.GetComponent<RectTransform>();
-        tableScript.handleMoodChange += positionArm;
-        tableScript.handleOverAllMoodChange += positionArm;
+        tableScript.handleMoodChange += PositionArm;
+        tableScript.handleOverAllMoodChange += (bool fulfilled, int happiness) => {StartCoroutine(ResetArm(fulfilled, happiness));};
 
-        positionArm(true, globals.defaultHappiness);
+        PositionArm(true, globals.defaultHappiness);
     }
 
-    void positionArm(bool fulfilled, int happiness) {
+    void PositionArm(bool fulfilled, int happiness) {
         int temp = globals.maxHappiness + 1;
         float subDiv = backgroundWidth / temp;
         float targetX = subDiv * happiness;
         armTarget = new Vector3(targetX, armRectTransform.position.y, armRectTransform.position.z);
-        StartCoroutine(MoveArm());
+        StartCoroutine("MoveArm");
+    }
+
+    private IEnumerator ResetArm(bool fulfilled, int happiness) {
+        Debug.Log("RESET ARM happiness: " + happiness);
+        yield return new WaitForSeconds(0.4f);
+        StopCoroutine("MoveArm");
+        PositionArm(fulfilled, happiness);
     }
 
     private IEnumerator MoveArm() {

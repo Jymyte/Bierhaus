@@ -30,14 +30,13 @@ public class Table : MonoBehaviour
     public delegate void OverAllMoodDelegate(bool positive, int happiness);
     public OverAllMoodDelegate handleOverAllMoodChange;
 
+
     private void Start() {
         playerScript = player.GetComponent<Player>();
         orderTimeOut = ordersScribtable.orderTimeOutSeconds;
         showOrderTime = ordersScribtable.showOrderTime;
         speechBubbleNumber = speechBubbleNumberObject.GetComponent<Image>();
-        happiness = globals.defaultHappiness;
-
-        handleOverAllMoodChange += ResetTable;
+        happiness = globals.defaultHappiness;        
     }
 
     public void ServeItem(string item) {
@@ -91,11 +90,11 @@ public class Table : MonoBehaviour
         orders.RemoveAt(orderIndex);
         AdjustMood(true);
         
-
+        Debug.Log("Does happiness: " + happiness + " match max happiness: " + globals.maxHappiness + " Bool happiness >= maxHappiness: " + (happiness >= globals.maxHappiness));
         if (happiness >= globals.maxHappiness) {
-            handleOverAllMoodChange(true, happiness);
+            ResetTable(true);
         } else {
-            handleMoodChange(true, happiness);
+            
         }
             
 
@@ -106,21 +105,21 @@ public class Table : MonoBehaviour
         AdjustMood(false);
 
         if (happiness <= 0) {
-            handleOverAllMoodChange(false, happiness);
-        } else {
-            handleMoodChange(false, happiness);
+            ResetTable(false);
         }
     }
 
-    private void ResetTable(bool positive, int happiness) {
-        Debug.Log("Reset Table: " + "happiness before adjustment" + this.happiness);
-        this.happiness = globals.defaultHappiness;
-        Debug.Log("happiness after adjustment: " + this.happiness);
+    private void ResetTable(bool positive) {
+        Debug.Log("Reset Table: " + "happiness before adjustment" + happiness);
+        happiness = globals.defaultHappiness;
+        handleOverAllMoodChange(positive, happiness);
+        Debug.Log("happiness after adjustment: " + happiness);
     }
 
     private void AdjustMood(bool fulfilled) {
         if(fulfilled) happiness++;
         else happiness--;
+        handleMoodChange(true, happiness);
     }
 
     private void ShowOrder(int amount) {

@@ -36,8 +36,7 @@ public class Player : MonoBehaviour
     public void QueueAddItem(string item) {
         if  (inventory.Count < inventorySize) {
             queue.playerActions.Enqueue("GetBeer");
-            inventory.Add(item);
-            updateInventoryHUD();            
+            inventory.Add(item);        
         } else {
             Debug.Log("Inventory full");
         }
@@ -46,7 +45,6 @@ public class Player : MonoBehaviour
     public void QueueServeItem(string item) {
         queue.playerActions.Enqueue("ServeBeer");
         inventory.Remove(item);
-        updateInventoryHUD();
     }
 
     public void FreezePlayer(bool isFrozen) {
@@ -60,7 +58,7 @@ public class Player : MonoBehaviour
     public bool hasItem(string item) {
         if (inventory.Contains(item)) return true; else return false;
     }
-    private void updateInventoryHUD() {
+    public void updateInventoryHUD() {
         foreach (GameObject icon in inventoryIcons) {
             icon.SetActive(false);
         }
