@@ -76,7 +76,7 @@ public class Table : MonoBehaviour
     public void MakeOrder() {
         orders.Add(GenerateOrder());
         //orders[0].LogOrder();
-        Debug.Log("Orders list size: " + orders.Count);
+        //Debug.Log("Orders list size: " + orders.Count);
     }
     private Order GenerateOrder() {
         int nbrOfItems = ordersScribtable.RollNbrOfItems();
