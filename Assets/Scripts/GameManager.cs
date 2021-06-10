@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +15,15 @@ public class GameManager : MonoBehaviour
     float addTableTimer;
     private int nextTableToAdd = 0;
     private int tablesInRound;
+    private float score = 0;
+    [SerializeField]
+    private Text scoreText;
 
     private void Start() {
         timer = ordersScriptable.timeInBetweenOrder;
         tablesInRound = globals.startingActiveTableAmount;
-        
+        RollInitialTableOrder();
+
         while (tableScripts.Count < globals.startingActiveTableAmount) {
             AddTable();
         }
@@ -27,11 +32,13 @@ public class GameManager : MonoBehaviour
         InitializeTables();
         StartTimers();
 
+        scoreText.text = "SCORE: " + score;
     }
 
     private void AddTable() {
         if (tableScripts.Count < tables.Count) {
             tableScripts.Add(tables[nextTableToAdd].GetComponent<Table>());
+            SubscribeToDelegates();
             nextTableToAdd++;
         }
     }
@@ -73,6 +80,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void RollInitialTableOrder() {
+        for (int i = 0; i < tables.Count; i++) {
+            GameObject temp = tables[i];
+            int randomIndex = Random.Range(i, tables.Count);
+            tables[i] = tables[randomIndex];
+            tables[randomIndex] = temp;
+        }
+    }
+
     private void StartTimers() {
         timer = ordersScriptable.timeInBetweenOrder;
 
@@ -87,5 +103,20 @@ public class GameManager : MonoBehaviour
         tableToHandle++;
         
         if (tableToHandle >= tablesInRound) AnotherRound(); 
+    }
+
+    private void SubscribeToDelegates() {
+        foreach (Table script in tableScripts)
+        {
+            script.handleOverAllMoodChange -= HandleScoreChange;
+            script.handleOverAllMoodChange += HandleScoreChange;
+        }
+    }
+
+    private void HandleScoreChange(bool increase, int forgetThis) {
+        if(increase) {
+            score += 100;
+        }  else score -= 100;
+        scoreText.text = "SCORE: " + score;
     }
 }

@@ -41,14 +41,14 @@ public class Moodmeter : MonoBehaviour
     }
 
     private IEnumerator ResetArm(bool fulfilled, int happiness) {
-        Debug.Log("RESET ARM happiness: " + happiness);
+        //Debug.Log("RESET ARM happiness: " + happiness);
         yield return new WaitForSeconds(globals.resetTableTimer);
         StopCoroutine("MoveArm");
         PositionArm(fulfilled, happiness);
     }
 
     private IEnumerator MoveArm() {
-        Debug.Log("Happiness: " + tableScript.GetHappiness());
+        //Debug.Log("Happiness: " + tableScript.GetHappiness());
         while (Vector3.Distance(armRectTransform.anchoredPosition3D, armTarget) > 0.05f) {
             armRectTransform.anchoredPosition3D = Vector3.MoveTowards(armRectTransform.anchoredPosition3D, armTarget, lerpTime * Time.deltaTime);
             yield return null;

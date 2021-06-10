@@ -26,8 +26,8 @@ public class Table : MonoBehaviour
 
     //NPC
     [SerializeField]
-    private List<GameObject> npcGameObjects;
-    private List<NPCAnimationController> npcControllers;
+    private List<GameObject> npcGameObjects = new List<GameObject>();
+    private List<NPCAnimationController> npcControllers = new List<NPCAnimationController>();
 
     //Delegate
     public delegate void MoodDelegate(bool fulfilled, int happiness);
@@ -35,14 +35,17 @@ public class Table : MonoBehaviour
     public delegate void OverAllMoodDelegate(bool positive, int happiness);
     public OverAllMoodDelegate handleOverAllMoodChange;
 
+    private void Awake() {
+        
+    }
 
     private void Start() {
-        GetNPCScripts();
         playerScript = player.GetComponent<Player>();
         orderTimeOut = ordersScribtable.orderTimeOutSeconds;
         showOrderTime = ordersScribtable.showOrderTime;
         speechBubbleNumber = speechBubbleNumberObject.GetComponent<Image>();
-        happiness = globals.defaultHappiness;        
+        happiness = globals.defaultHappiness;
+        GetNPCScripts();
     }
 
     public void ServeItem(string item) {
@@ -143,7 +146,6 @@ public class Table : MonoBehaviour
             foreach (GameObject npc in npcGameObjects)
             {
                 npcControllers.Add(npc.GetComponent<NPCAnimationController>());
-                Debug.Log(npcControllers.Count);
             }
         }
     }
@@ -177,4 +179,4 @@ public class Table : MonoBehaviour
     public int GetHappiness() {
         return happiness;
     }
-}
+ }
