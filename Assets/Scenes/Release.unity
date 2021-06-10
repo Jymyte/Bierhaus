@@ -1251,13 +1251,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: korjattuBAREL
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2bbce56a211cbca409031b3f329bdec6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 2bbce56a211cbca409031b3f329bdec6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 2bbce56a211cbca409031b3f329bdec6, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bbce56a211cbca409031b3f329bdec6, type: 3}
@@ -2819,6 +2823,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: kivi
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5806a65e770a1b049944e8c0fbe690e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 5806a65e770a1b049944e8c0fbe690e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5806a65e770a1b049944e8c0fbe690e8, type: 3}
 --- !u!4 &1644849891 stripped
@@ -3522,7 +3534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9051790528681015299, guid: 85d2106933a4e844f8faf29855a7572d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85d2106933a4e844f8faf29855a7572d, type: 3}
