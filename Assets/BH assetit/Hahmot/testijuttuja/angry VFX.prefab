@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2093827202646238105}
   m_LocalRotation: {x: -0.62374616, y: 0.30468473, z: 0.31437615, w: 0.647515}
   m_LocalPosition: {x: 2, y: -1, z: -6}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.06330456}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ ParticleSystem:
   serializedVersion: 7
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
