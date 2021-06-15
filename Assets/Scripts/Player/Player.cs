@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private List<GameObject> inventoryIcons = new List<GameObject>();
     private List<string> inventory = new List<string>();
     private int inventorySize;
+    private int itemsInInventory = 0;
 
     private void Start() {
         nma = ecm_agent.GetComponent<NavMeshAgent>();
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
     public void QueueAddItem(string item) {
         if  (inventory.Count < inventorySize) {
             queue.playerActions.Enqueue("GetBeer");
-            inventory.Add(item);        
+            inventory.Add(item);
         } else {
             Debug.Log("Inventory full");
         }
@@ -58,11 +59,14 @@ public class Player : MonoBehaviour
     public bool hasItem(string item) {
         if (inventory.Contains(item)) return true; else return false;
     }
-    public void updateInventoryHUD() {
+    public void updateInventoryHUD(bool increase) {
+        Debug.Log("before:" + itemsInInventory);
+        if (increase) itemsInInventory++; else itemsInInventory--;
+        Debug.Log("after:" + itemsInInventory);
         foreach (GameObject icon in inventoryIcons) {
             icon.SetActive(false);
         }
-        for (int i = 0; i < inventory.Count; i++) {
+        for (int i = 0; i < itemsInInventory; i++) {
             inventoryIcons[i].SetActive(true);
         } 
     }
