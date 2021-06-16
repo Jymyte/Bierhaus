@@ -24,10 +24,14 @@ public class Table : MonoBehaviour
     private float orderTimeOut;
     private float showOrderTime;
 
-    //NPC
+    //NPC animation
     [SerializeField]
     private List<GameObject> npcGameObjects = new List<GameObject>();
     private List<NPCAnimationController> npcControllers = new List<NPCAnimationController>();
+
+    [SerializeField]
+    private List<GameObject> fxObject = new List<GameObject>();
+    private List<ParticleSystem> fx = new List<ParticleSystem>();
 
     //Delegate
     public delegate void MoodDelegate(bool fulfilled, int happiness);
@@ -46,6 +50,7 @@ public class Table : MonoBehaviour
         speechBubbleNumber = speechBubbleNumberObject.GetComponent<Image>();
         happiness = globals.defaultHappiness;
         GetNPCScripts();
+        GetFXComponents();
     }
 
     public void ServeItem(string item) {
@@ -150,13 +155,38 @@ public class Table : MonoBehaviour
         }
     }
 
+    private void GetFXComponents() {
+        if (npcGameObjects.Count > 0) {
+            foreach (GameObject temp in fxObject)
+            {
+                fx.Add(temp.GetComponent<ParticleSystem>());
+            }
+        }
+    }
+
     private void PlayNPCAnimaton(bool happy) {
         if (happy) {
             if (npcControllers.Count > 0) {
                 foreach (NPCAnimationController npc in npcControllers) {
                     npc.PlayAnim("isHappy");
+                    PlayParticleEffect("happy");
                 }
             }
+        } else {
+            if (npcControllers.Count > 0) {
+                foreach (NPCAnimationController npc in npcControllers) {
+                    npc.PlayAnim("isAngry");
+                    PlayParticleEffect("angry");
+                }
+            }
+        }
+    }
+
+    private void PlayParticleEffect(string type) {
+        if (type == "angry") {
+            fx[0].Play();
+        } else {
+            fx[1].Play();
         }
     } 
 
