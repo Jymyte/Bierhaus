@@ -60,9 +60,7 @@ public class Player : MonoBehaviour
         if (inventory.Contains(item)) return true; else return false;
     }
     public void updateInventoryHUD(bool increase) {
-        Debug.Log("before:" + itemsInInventory);
         if (increase) itemsInInventory++; else itemsInInventory--;
-        Debug.Log("after:" + itemsInInventory);
         foreach (GameObject icon in inventoryIcons) {
             icon.SetActive(false);
         }
