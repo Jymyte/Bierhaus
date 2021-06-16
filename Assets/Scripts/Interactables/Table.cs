@@ -39,9 +39,15 @@ public class Table : MonoBehaviour
     public delegate void OverAllMoodDelegate(bool positive, int happiness);
     public OverAllMoodDelegate handleOverAllMoodChange;
 
-    private void Awake() {
-        
-    }
+    //Button Highlight
+    [SerializeField]
+    private List<GameObject> buttons = new List<GameObject>();
+    private List<Image> buttonImages = new List<Image>();
+
+    [SerializeField]
+    private List<GameObject> speechBubbleObjects = new List<GameObject>();
+    private List<Image> speechBubble = new List<Image>();
+
 
     private void Start() {
         playerScript = player.GetComponent<Player>();
@@ -51,6 +57,8 @@ public class Table : MonoBehaviour
         happiness = globals.defaultHappiness;
         GetNPCScripts();
         GetFXComponents();
+        GetButtonImages();
+        GetSpeechBubbleImages();
     }
 
     public void ServeItem(string item) {
@@ -106,6 +114,8 @@ public class Table : MonoBehaviour
         
         Debug.Log("Does happiness: " + happiness + " match max happiness: " + globals.maxHappiness + " Bool happiness >= maxHappiness: " + (happiness >= globals.maxHappiness));
         if (happiness >= globals.maxHappiness) {
+            PlayParticleEffect("happy");
+            PlayParticleEffect("happy");
             ResetTable(true);
         } else {
             
@@ -115,6 +125,9 @@ public class Table : MonoBehaviour
     private void TimeoutAction() {
         orders.RemoveAt(0);
         AdjustMood(false);
+
+        PlayParticleEffect("angry");
+        PlayParticleEffect("angry");
 
         if (happiness <= 0) {
             ResetTable(false);
@@ -144,7 +157,7 @@ public class Table : MonoBehaviour
     }
 
 
-    //NPC STUFF=======================================================================
+    //NPC ANIMATION STUFF=======================================================================
 
     private void GetNPCScripts() {
         if (npcGameObjects.Count > 0) {
@@ -190,15 +203,67 @@ public class Table : MonoBehaviour
         }
     } 
 
+    //BUTTON HIGHLIGHT
+
+    private void GetButtonImages() {
+        if (buttons.Count > 0) {
+            foreach (GameObject button in buttons)
+            {
+                buttonImages.Add(button.GetComponent<Image>());
+            }
+        }
+    }
+
+    private void GetSpeechBubbleImages() {
+        if (speechBubbleObjects.Count > 0) {
+            foreach (GameObject temp in buttons)
+            {
+                buttonImages.Add(temp.GetComponent<Image>());
+            }
+        }
+    }
+
+    private void OnMouseOver() {
+        if (playerIsNear == false) ShowImages(0.5f);
+    }
+
+    private void OnMouseExit() {
+        if (playerIsNear == false) HideImages();
+    }
+
+    private void ShowImages(float alphaValue) {
+        if (buttonImages.Count > 0) {
+            foreach (Image image in buttonImages)
+            {
+                Color tempColor = image.color;
+                tempColor.a = alphaValue;
+                image.color = tempColor;
+            }
+        }
+    }
+
+    private void HideImages() {
+        if (buttonImages.Count > 0) {
+            foreach (Image image in buttonImages)
+            {
+                Color tempColor = image.color;
+                tempColor.a = 0f;
+                image.color = tempColor;
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider target) {
         if (target.tag == "Player") {
             playerIsNear = true;
+            ShowImages(1f);
         }
     }
 
     private void OnTriggerExit(Collider target) {
         if (target.tag == "Player") {
             playerIsNear = false;
+            HideImages();
         }
     }
 

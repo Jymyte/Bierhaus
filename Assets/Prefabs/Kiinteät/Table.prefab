@@ -583,6 +583,13 @@ MonoBehaviour:
   fxObject:
   - {fileID: 3447844967642640112}
   - {fileID: 2800384236079679949}
+  buttons:
+  - {fileID: 4076704889318992151}
+  speechBubbleObjects:
+  - {fileID: 8441151916370742047}
+  - {fileID: 5307893874244532680}
+  - {fileID: 69898137300393212}
+  - {fileID: 4575050056596770329}
 --- !u!33 &7332224863850890628
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -651,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
