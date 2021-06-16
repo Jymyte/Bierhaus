@@ -46,7 +46,7 @@ public class Table : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> speechBubbleObjects = new List<GameObject>();
-    private List<Image> speechBubble = new List<Image>();
+    private List<Image> speechBubbleImages = new List<Image>();
 
 
     private void Start() {
@@ -61,6 +61,8 @@ public class Table : MonoBehaviour
         GetSpeechBubbleImages();
     }
 
+
+    // PLAYER
     public void ServeItem(string item) {
         if (playerIsNear) {
             Debug.Log("Serving " + item + "...");
@@ -86,6 +88,7 @@ public class Table : MonoBehaviour
         }
     }
 
+    // ORDER STUFF
     public void MakeOrder() {
         orders.Add(GenerateOrder());
         //orders[0].LogOrder();
@@ -134,6 +137,25 @@ public class Table : MonoBehaviour
         }
     }
 
+    private void ShowOrder(int amount) {
+        foreach (Image image in speechBubbleImages)
+        {
+            ChangeAlphaValue(image, 1f);
+        }
+
+        speechBubbleNumber.sprite = numberImages[amount - 1];
+        //speechBubbleNumberObject.transform.parent.gameObject.SetActive(true);
+    }
+    private void HideOrder() {
+        foreach (Image image in speechBubbleImages)
+        {
+            ChangeAlphaValue(image, 0f);
+        }
+        //speechBubbleNumberObject.transform.parent.gameObject.SetActive(false);
+    }
+
+
+    //TABLE STUFF
     private void ResetTable(bool positive) {
         Debug.Log("Reset Table: " + "happiness before adjustment" + happiness);
         happiness = globals.defaultHappiness;
@@ -148,13 +170,6 @@ public class Table : MonoBehaviour
         PlayNPCAnimaton(fulfilled);
     }
 
-    private void ShowOrder(int amount) {
-        speechBubbleNumber.sprite = numberImages[amount - 1];
-        speechBubbleNumberObject.transform.parent.gameObject.SetActive(true);
-    }
-    private void HideOrder() {
-        speechBubbleNumberObject.transform.parent.gameObject.SetActive(false);
-    }
 
 
     //NPC ANIMATION STUFF=======================================================================
@@ -216,9 +231,9 @@ public class Table : MonoBehaviour
 
     private void GetSpeechBubbleImages() {
         if (speechBubbleObjects.Count > 0) {
-            foreach (GameObject temp in buttons)
+            foreach (GameObject temp in speechBubbleObjects)
             {
-                buttonImages.Add(temp.GetComponent<Image>());
+                speechBubbleImages.Add(temp.GetComponent<Image>());
             }
         }
     }
@@ -235,9 +250,7 @@ public class Table : MonoBehaviour
         if (buttonImages.Count > 0) {
             foreach (Image image in buttonImages)
             {
-                Color tempColor = image.color;
-                tempColor.a = alphaValue;
-                image.color = tempColor;
+                ChangeAlphaValue(image, alphaValue);
             }
         }
     }
@@ -246,11 +259,15 @@ public class Table : MonoBehaviour
         if (buttonImages.Count > 0) {
             foreach (Image image in buttonImages)
             {
-                Color tempColor = image.color;
-                tempColor.a = 0f;
-                image.color = tempColor;
+                ChangeAlphaValue(image, 0f);
             }
         }
+    }
+
+    private void ChangeAlphaValue(Image image, float alphaValue) {
+        Color tempColor = image.color;
+                tempColor.a = alphaValue;
+                image.color = tempColor;
     }
 
     private void OnTriggerEnter(Collider target) {
