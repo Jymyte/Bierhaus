@@ -579,10 +579,10 @@ MonoBehaviour:
   - {fileID: 2689933179013696340, guid: 9a815932b01d7cf4d9da5fce732bbee2, type: 3}
   - {fileID: 4464801580267767507, guid: 9a815932b01d7cf4d9da5fce732bbee2, type: 3}
   - {fileID: -6933109824121242631, guid: 9a815932b01d7cf4d9da5fce732bbee2, type: 3}
-  npcGameObjects:
+  npcGameObjects: []
+  fxObject:
   - {fileID: 3447844967642640112}
   - {fileID: 2800384236079679949}
-  fxObject: []
 --- !u!33 &7332224863850890628
 MeshFilter:
   m_ObjectHideFlags: 0
