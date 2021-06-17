@@ -805,18 +805,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1833151194351543077, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833151194351543077, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833151194351543077, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.50000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833151194351543077, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.100932494
       objectReference: {fileID: 0}
@@ -856,105 +844,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: TrailModule.mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.angle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: LightsModule.ratio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ColorModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: NoiseModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: TrailModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: LightsModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.arc.mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: NoiseModule.frequency
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.arc.value
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.arc.spread
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: TrailModule.textureMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.placementMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: NoiseModule.strength.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: TrailModule.sizeAffectsWidth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: TrailModule.inheritParticleColor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836597500870888967, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime0
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5058713303366507136, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
       propertyPath: m_Name
       value: beertap VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 6836875290118947880, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f3654931d37614693ff1e8488ee19b, type: 3}
