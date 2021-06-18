@@ -24,5 +24,11 @@ public class GameController : MonoBehaviour
     SceneFader.instance.LoadScene("Release");
   }
 
-
+  public void MusicOnOff () {
+      if (MusicController.instance.audioSource.isPlaying == true) {
+        MusicController.instance.PlayMusic(false);
+    } else {
+        MusicController.instance.PlayMusic(true);
+    }
+  } 
 }
