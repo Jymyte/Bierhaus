@@ -14,5 +14,7 @@ public class Globals : ScriptableObject
     public float addNewTableTimer;
     public float resetTableTimer;
     public float NPCAnimationTime;
+
+    public float roundTime;
     
 }

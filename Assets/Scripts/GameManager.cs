@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private Text scoreText;
 
     private void Start() {
+        //Time.timeScale = 1f;
         timer = ordersScriptable.timeInBetweenOrder;
         tablesInRound = globals.startingActiveTableAmount;
         RollInitialTableOrder();
