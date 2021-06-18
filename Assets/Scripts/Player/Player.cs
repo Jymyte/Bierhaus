@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     }
     
     public void QueueAddItem(string item) {
-        if  (inventory.Count < inventorySize) {
+        if  (!isInventoryFull()) {
             queue.playerActions.Enqueue("GetBeer");
             inventory.Add(item);
         } else {
@@ -56,6 +56,11 @@ public class Player : MonoBehaviour
         nma.isStopped = true;
         nma.ResetPath();
     }
+
+    public bool isInventoryFull() {
+        if  (inventory.Count < inventorySize) return false; else return true;
+    }
+
     public bool hasItem(string item) {
         if (inventory.Contains(item)) return true; else return false;
     }
