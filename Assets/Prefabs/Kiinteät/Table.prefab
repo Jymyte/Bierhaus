@@ -1194,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table happy
       objectReference: {fileID: 0}
+    - target: {fileID: 3182009328683820489, guid: 560bf44544722c14cb286df3dca22b73, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3182009328683820490, guid: 560bf44544722c14cb286df3dca22b73, type: 3}
       propertyPath: m_RootOrder
       value: 4
