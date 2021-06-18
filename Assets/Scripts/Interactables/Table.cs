@@ -118,7 +118,7 @@ public class Table : MonoBehaviour
         Debug.Log("Does happiness: " + happiness + " match max happiness: " + globals.maxHappiness + " Bool happiness >= maxHappiness: " + (happiness >= globals.maxHappiness));
         if (happiness >= globals.maxHappiness) {
             PlayParticleEffect("happy");
-            PlayParticleEffect("happy");
+            PlayParticleEffect("hearts");
             ResetTable(true);
         } else {
             
@@ -155,7 +155,8 @@ public class Table : MonoBehaviour
     }
 
 
-    //TABLE STUFF
+    //TABLE STUFF=======================================================================
+
     private void ResetTable(bool positive) {
         Debug.Log("Reset Table: " + "happiness before adjustment" + happiness);
         happiness = globals.defaultHappiness;
@@ -169,7 +170,6 @@ public class Table : MonoBehaviour
         handleMoodChange(fulfilled, happiness);
         PlayNPCAnimaton(fulfilled);
     }
-
 
 
     //NPC ANIMATION STUFF=======================================================================
@@ -211,10 +211,16 @@ public class Table : MonoBehaviour
     }
 
     private void PlayParticleEffect(string type) {
-        if (type == "angry") {
-            fx[0].Play();
-        } else {
-            fx[1].Play();
+        switch (type) {
+            case "happy":
+                fx[1].Play();
+                break;
+            case "hearts":
+                fx[2].Play();
+                break;
+            default:
+                fx[0].Play();
+                break;
         }
     } 
 

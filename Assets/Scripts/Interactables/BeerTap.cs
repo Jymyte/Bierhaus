@@ -6,6 +6,9 @@ public class BeerTap : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
+
+    [SerializeField]
+    private ParticleSystem pour;
     Player playerScript;
 
     private bool playerIsNear;
@@ -19,6 +22,7 @@ public class BeerTap : MonoBehaviour
             Debug.Log("Beer Tap");
             playerScript.StopPlayerMovement();
             playerScript.QueueAddItem("beer");
+            if (!playerScript.isInventoryFull()) pour.Play();
         } else {
             Debug.Log("Player is not by " + this.gameObject.name);
         }
