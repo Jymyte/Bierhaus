@@ -21,4 +21,4 @@ MonoBehaviour:
   addNewTableTimer: 5
   resetTableTimer: 0.5
   NPCAnimationTime: 2
-  roundTime: 15
+  roundTime: 150
