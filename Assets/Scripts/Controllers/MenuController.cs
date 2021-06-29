@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour
     }
 
     public void MusicOnOff () {
-         if (MusicController.instance.audioSource.isPlaying == true) {
+        if (MusicController.instance.audioSource.isPlaying == true) {
             MusicController.instance.PlayMusic(false);
         } else {
             MusicController.instance.PlayMusic(true);

@@ -35,6 +35,7 @@ public class PlayerActionQueue : MonoBehaviour
             playerScript.FreezePlayer(false);
         }
         playerScript.updateInventoryHUD(false);
+        MusicController.instance.PlaySound("serving");
     }
 
     public IEnumerator GetBeer() {

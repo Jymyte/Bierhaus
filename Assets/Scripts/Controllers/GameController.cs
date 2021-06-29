@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
   [SerializeField]
   private GameObject restartMenu;
 
+  
+
   private void Start() {
     Time.timeScale = 1f;
     StartCoroutine(HandleGameover());
@@ -25,10 +27,14 @@ public class GameController : MonoBehaviour
   }
 
   public void MusicOnOff () {
-      if (MusicController.instance.audioSource.isPlaying == true) {
+    if (MusicController.instance.audioSource.isPlaying == true) {
         MusicController.instance.PlayMusic(false);
     } else {
         MusicController.instance.PlayMusic(true);
     }
-  } 
+  }
+
+  public void SFXOnOff () {
+    MusicController.instance.MuteSFX();
+  }
 }
