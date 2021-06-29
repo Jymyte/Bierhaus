@@ -5,6 +5,6 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     public void StartGame() {
-      SceneFader.instance.LoadScene("Release");
+        SceneFader.instance.LoadScene("Release");
     }
 }
