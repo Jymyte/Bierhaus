@@ -975,14 +975,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1084464879080742061, guid: ba756a6857207654c85f8218c2a7fb70, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3192364967746825118, guid: ba756a6857207654c85f8218c2a7fb70, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 313699431}
     - target: {fileID: 3241671842268889849, guid: ba756a6857207654c85f8218c2a7fb70, type: 3}
       propertyPath: m_Name
       value: MusicController

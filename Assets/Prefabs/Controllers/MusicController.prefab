@@ -215,7 +215,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8538107056426072903
 MonoBehaviour:
@@ -267,14 +267,14 @@ PrefabInstance:
     - target: {fileID: 3229435243324195653, guid: f58c814b8bf184742a12819db3ba885d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3241671842268889848}
     - target: {fileID: 3229435243324195653, guid: f58c814b8bf184742a12819db3ba885d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MusicOnOff
       objectReference: {fileID: 0}
     - target: {fileID: 3229435243324195653, guid: f58c814b8bf184742a12819db3ba885d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuController, Assembly-CSharp
+      value: MusicController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3229435243324195654, guid: f58c814b8bf184742a12819db3ba885d, type: 3}
       propertyPath: m_Pivot.x

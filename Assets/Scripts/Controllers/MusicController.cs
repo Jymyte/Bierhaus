@@ -48,6 +48,14 @@ public class MusicController : MonoBehaviour
         }
     }
 
+    public void MusicOnOff () {
+        if (audioSource.isPlaying == true) {
+            PlayMusic(false);
+        } else {
+            PlayMusic(true);
+        }
+    }
+
     public void MuteSFX() {
         if (muteSFX) muteSFX = false; else muteSFX = true;
     }

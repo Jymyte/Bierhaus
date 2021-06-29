@@ -1476,17 +1476,6 @@ MonoBehaviour:
   - {fileID: 1234244832}
   - {fileID: 1717877918}
   - {fileID: 724224237}
---- !u!114 &531271329 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5615270697037856742, guid: 204515ad176f72b4992d748cfe0de3f4, type: 3}
-  m_PrefabInstance: {fileID: 1474802350}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &532609486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2190,7 +2179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3229435243324195654, guid: f58c814b8bf184742a12819db3ba885d, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3229435243324195654, guid: f58c814b8bf184742a12819db3ba885d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5144,10 +5133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globals: {fileID: 11400000, guid: 05af9231f2070c74f8256496e12ab24d, type: 2}
   restartMenu: {fileID: 246181343}
-  muteButtonSprites:
-  - {fileID: -1241718479661406313, guid: 9bcc671581caef24ba049e9ac6499dde, type: 3}
-  - {fileID: -1148752313002517757, guid: 9bcc671581caef24ba049e9ac6499dde, type: 3}
-  muteButtonImage: {fileID: 531271329}
 --- !u!4 &1849336115
 Transform:
   m_ObjectHideFlags: 0
