@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 652f5541c44685b4bbf65690953d8e91
+guid: 7a89361d27e5a014b98c6eabddffd231
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3396626613657313776
-    second: logo_parts_1_0
+      213: 6412050812913813337
+    second: logo_parts_lowres_0
   - first:
-      213: 5705287050342250138
-    second: logo_parts_1_1
+      213: -9114874489741073087
+    second: logo_parts_lowres_1
   - first:
-      213: 9161900734997646212
-    second: logo_parts_1_2
+      213: 593374172795093843
+    second: logo_parts_lowres_2
   - first:
-      213: 897131088341661516
-    second: logo_parts_1_4
+      213: 4409223610099786923
+    second: logo_parts_lowres_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,85 +103,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: logo_parts_1_0
+      name: logo_parts_lowres_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 115
-        width: 212
-        height: 208
+        x: 9
+        y: 58
+        width: 100
+        height: 104
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01e515a4712ccd0d0800000000000000
-      internalID: -3396626613657313776
+      spriteID: 9578b79ed3e2cf850800000000000000
+      internalID: 6412050812913813337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: logo_parts_1_1
+      name: logo_parts_lowres_1
       rect:
         serializedVersion: 2
-        x: 181
-        y: 314
-        width: 400
-        height: 244
+        x: 90
+        y: 156
+        width: 200
+        height: 123
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a96394928504d2f40800000000000000
-      internalID: 5705287050342250138
+      spriteID: 145a6bab1f5718180800000000000000
+      internalID: -9114874489741073087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: logo_parts_1_2
+      name: logo_parts_lowres_2
       rect:
         serializedVersion: 2
-        x: 300
-        y: 194
-        width: 161
-        height: 121
+        x: 150
+        y: 97
+        width: 80
+        height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bcce83d2c952f70800000000000000
-      internalID: 9161900734997646212
+      spriteID: 353c7549aa61c3800800000000000000
+      internalID: 593374172795093843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: logo_parts_1_4
+      name: logo_parts_lowres_4
       rect:
         serializedVersion: 2
-        x: 231
-        y: 17
-        width: 300
-        height: 152
+        x: 115
+        y: 8
+        width: 151
+        height: 77
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c47709db8ff337c00800000000000000
-      internalID: 897131088341661516
+      spriteID: ba463472385b03d30800000000000000
+      internalID: 4409223610099786923
       vertices: []
       indices: 
       edges: []
