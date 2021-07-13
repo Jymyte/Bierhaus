@@ -898,6 +898,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3241671842268889854, guid: ba756a6857207654c85f8218c2a7fb70, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3241671842268889855, guid: ba756a6857207654c85f8218c2a7fb70, type: 3}
       propertyPath: m_RootOrder
       value: 2
